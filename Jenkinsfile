@@ -22,7 +22,7 @@ node {
     }
 
     stage ('Gradle Build') {
-        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', tasks: 'clean build'
+        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', switches: '--debug', tasks: 'clean build'
     }
 
     stage ('Gradle Publish') {
