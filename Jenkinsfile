@@ -26,7 +26,7 @@ node {
     }
 
     stage ('Gradle Publish') {
-        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', switches: '--debug', tasks: 'artifactoryPublish'
+        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', switches: '--debug --scan', tasks: 'artifactoryPublish'
     }
 
     stage ('Artifactory Publish Build Info') {
