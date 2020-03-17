@@ -22,11 +22,11 @@ node {
     }
 
     stage ('Gradle Build') {
-        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', switches: '--debug', tasks: 'clean build'
+        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', tasks: 'clean build'
     }
 
     stage ('Gradle Publish') {
-        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', tasks: 'artifactoryPublish'
+        buildInfo = rtGradle.run rootDir: "./", buildFile: 'build.gradle', switches: '--debug', tasks: 'artifactoryPublish'
     }
 
     stage ('Artifactory Publish Build Info') {
